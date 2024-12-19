@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>林祐儀的個人作品集</title>
+    <style>
+        body {
+            background-color: #272932;
+            color: #B6C2D9;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .main-container {
+            display: flex;
+            width: 900px;
+            height: 1150px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .left-panel {
+            width: 330px;
+            display: flex;
+            flex-direction: column;
+            background-color: #f7f7f7;
+        }
+
+        .photo-panel {
+            height: 30%;
+            overflow: hidden;
+            border-top-left-radius: 10px;
+        }
+
+        .photo-panel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+        }
+
+        .text-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 50%;
+        }
+
+        .text-content .about {
+            font-size: 1.1em;
+        }
+
+        .text-content .contact {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .right-panel {
+            width: 540px;
+            padding: 20px;
+        }
+
+        .section h2 {
+            border-bottom: 2px solid #4D7EA8;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+            color: #B6C2D9;
+        }
+
+        .homework-list ul, .education ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .homework-list a, .favorite-music a {
+            text-decoration: none;
+            color: #76a1ad;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .homework-list a:hover, .favorite-music a:hover {
+            color: #4b8fa5;
+        }
+
+        .favorite-music h2 {
+            margin-bottom: 20px;
+        }
+
+        .music-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .music-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .music-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .music-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .music-item p {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .note {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .education ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .education .year {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .text-content .contact img {
+            width: 200px;
+            height: 120px;
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 950px) {
+            .main-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left-panel, .right-panel {
+                width: 100%;
+            }
+
+            .favorite-music img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="photo-panel">
+                <img src="myphoto.jpg" alt="個人照片">
+            </div>
+            <div class="text-content">
+                <div class="about">
+                    <h3>About Me</h3>
+                    <p id="name-display">姓名: 林祐儀 <button id="edit-name-btn">edit</button></p>
+                    <input type="text" id="name-input" style="display:none;">
+                </div>
+                <div class="contact">
+                    <p>聯絡方式:</p>
+                    <a href="mailto:113306026@nccu.edu.tw">113306026@nccu.edu.tw</a><br>
+                    <img src="nccu.jpg" alt="NCCU Logo">
+                </div>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="section education">
+                <h2>Education</h2>
+                <ul>
+                    <li><span class="year">政治大學資訊管理學系</li>
+                </ul>
+            </div>
+            <div class="section homework-list">
+                <h2>Homework List</h2>
+                <ul>
+                    <li><a href="https://github.com/yuyi917/HW1.git">HW1</a></li>
+                    <li><a href="https://github.com/yuyi917/113306026_mis_---.git">HW2</a></li>
+                    <li><a href="https://github.com/yuyi917/113306026_HW3.git">HW3</a></li>
+                </ul>
+            </div>
+            <div class="section favorite-music">
+                <h2>Favorite Music</h2>
+                <button id="add-music-btn">add</button>
+                <div id="music-form" style="display:none; margin-top: 10px;">
+                    <input type="text" id="music-name" placeholder="音樂名稱">
+                    <input type="text" id="music-link" placeholder="音樂連結">
+                    <button id="submit-music-btn">提交</button>
+                </div>
+                <div class="music-content" id="music-list">
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=2G_Pnakzdc0">
+                            <img src="youtube.jpg" alt="二十二">
+                        </a>
+                        <p>二十二</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=vEEpj8fTKwY">
+                            <img src="youtube.jpg" alt="愛你但說不出口">
+                        </a>
+                        <p>愛你但說不出口</p>
+                    </div>
+                    <div class="music-item">
+                        <a href="https://www.youtube.com/watch?v=Hm8EHt3m3QM">
+                            <img src="youtube.jpg" alt="慢一點">
+                        </a>
+                        <p>慢一點</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const nameDisplay = document.getElementById('name-display');
+        const nameInput = document.getElementById('name-input');
+        const editNameBtn = document.getElementById('edit-name-btn');
+        let isEditing = false;
+
+        editNameBtn.addEventListener('click', () => {
+            if (isEditing) {
+                // Save mode
+                const newName = nameInput.value.trim();
+                if (newName) {
+                    nameDisplay.innerHTML = `姓名: ${newName} <button id="edit-name-btn">edit</button>`;
+                    const newEditButton = document.getElementById('edit-name-btn');
+                    newEditButton.addEventListener('click', arguments.callee);
+                }
+                nameInput.style.display = 'none';
+                nameDisplay.style.display = 'inline';
+            } else {
+                nameInput.value = nameDisplay.textContent.replace('姓名: ', '').trim();
+                nameInput.style.display = 'inline';
+                nameDisplay.style.display = 'none';
+            }
+            isEditing = !isEditing;
+        });
+
+        const addMusicBtn = document.getElementById('add-music-btn');
+        const musicForm = document.getElementById('music-form');
+        const submitMusicBtn = document.getElementById('submit-music-btn');
+        const musicList = document.getElementById('music-list');
+
+        addMusicBtn.addEventListener('click', () => {
+            musicForm.style.display = musicForm.style.display === 'none' ? 'block' : 'none';
+        });
+
+        submitMusicBtn.addEventListener('click', () => {
+            const musicName = document.getElementById('music-name').value.trim();
+            const musicLink = document.getElementById('music-link').value.trim();
+
+            if (musicName && musicLink) {
+                // Create new music item
+                const newMusicItem = document.createElement('div');
+                newMusicItem.className = 'music-item';
+
+                const musicImg = document.createElement('img');
+                musicImg.src = 'youtube.jpg';
+                musicImg.alt = musicName;
+
+                const musicAnchor = document.createElement('a');
+                musicAnchor.href = musicLink;
+                musicAnchor.textContent = musicName;
+                musicAnchor.target = '_blank';
+
+                newMusicItem.appendChild(musicImg);
+                newMusicItem.appendChild(musicAnchor);
+                musicList.appendChild(newMusicItem);
+
+                document.getElementById('music-name').value = '';
+                document.getElementById('music-link').value = '';
+                musicForm.style.display = 'none';
+            } else {
+                alert('請完整填寫表單！');
+            }
+        });
+    </script>
+</body>
+</html>
